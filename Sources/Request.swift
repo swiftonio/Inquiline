@@ -6,12 +6,14 @@ public struct Request : RequestType, CustomStringConvertible, CustomDebugStringC
   public var path:String
   public var headers:[Header]
   public var body:String?
+  public var params:[String:String]
 
   public init(method:String, path:String, headers:[Header]? = nil, body:String? = nil) {
     self.method = method
     self.path = path
     self.headers = headers ?? []
     self.body = body
+    self.params = [:]
   }
 
   public var description:String {
